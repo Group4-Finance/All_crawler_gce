@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "==2.3.3"
+celery = "==5.5.0"
+crawler = {editable = true, path = "."}
+pandas = "*"
+requests = "*"
+yfinance = "==0.2.61"
+jieba = "*"
+bs4 = "*"
+tabulate = "*"
+apscheduler = "*"
+loguru = "*"
+sqlalchemy = "*"
+pymysql = "*"
+python-dotenv = "*"
+uvicorn = "*"
+api = "*"
+matplotlib = "*"
+numpy = "*"
+plotly = "*"
+multitasking = "==0.0.9"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
