@@ -1,9 +1,9 @@
 import urllib.request as req
 import pandas as pd
 import datetime
-from crawler.worker import app
 from crawler.mysqlcreate import upload_data_to_mysql_ETF_PremiumDiscount
 import sys
+import time
 
 
 def  PremiumDiscount(etf_list):
@@ -53,6 +53,8 @@ def  PremiumDiscount(etf_list):
     print("輸入進mysql完成")
     print("最新一筆資料：")
     print(df_MoneyDJ.iloc[-1])
+    time.sleep(3)
+    print("休息3秒")
 
 
 if __name__ == "__main__":

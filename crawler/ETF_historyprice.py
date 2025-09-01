@@ -6,7 +6,7 @@ import pandas as pd
 import time
 from loguru import logger
 from datetime import datetime
-# from crawler.mysqlcreate import upload_data_to_mysql_ETF_historyprice
+from crawler.mysqlcreate import upload_data_to_mysql_ETF_historyprice
 import logging
 import sys
 import requests
@@ -25,8 +25,8 @@ def historyprice(ticker) :
     today = pd.Timestamp.today().strftime('%Y-%m-%d')
     end_date = today
     start_date = today
-    # end_date = "2025-08-01"
-    # start_date = "2025-08-01"
+    # end_date = "2025-08-12"
+    # start_date = "2025-08-08"
     url = "https://api.finmindtrade.com/api/v4/data"
     token = "" # 參考登入，獲取金鑰
     headers = {"Authorization": f"Bearer {token}"}
@@ -55,8 +55,8 @@ def historyprice(ticker) :
     print(f"✅ 寫入前資料筆數：{len(data)}")
     logging.info("已完成爬蟲，準備寫入資料庫")
     time.sleep(10)
-    # upload_data_to_mysql_ETF_historyprice(data)
-    # logging.info("已寫入 MySQL")
+    upload_data_to_mysql_ETF_historyprice(data)
+    logging.info("已寫入 MySQL")
 
 
 

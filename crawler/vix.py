@@ -1,6 +1,4 @@
-# install yfinance
 
-import yfinance as yf
 import pandas as pd
 from datetime import datetime
 from crawler.worker import app
@@ -15,7 +13,7 @@ from bs4 import BeautifulSoup  # 用來解析 HTML
 
 
 
-def vix_data(Volatility_Index):
+def vix_data(url):
     # # ticker for the VIX
     # vix_ticker = yf.Ticker(Volatility_Index)
 
@@ -32,7 +30,6 @@ def vix_data(Volatility_Index):
 
     # # Round the Close prices to 2 decimal places
     # vix_data['Close'] = vix_data['Close'].round(2)
-    url = "https://www.stockq.org/index/VIX.php"
 
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
@@ -66,6 +63,6 @@ def vix_data(Volatility_Index):
     print("輸入進mysql完成")
 
 if __name__ == "__main__":
-    Volatility_Index = sys.argv[1]
-    print(f"✅ 進入 main，vix_data: {Volatility_Index}", flush=True)
-    vix_data(Volatility_Index)
+    url = sys.argv[1]
+    print(f"✅ 進入 main，vix_data: {url}", flush=True)
+    vix_data(url)
